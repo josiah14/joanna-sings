@@ -32,7 +32,7 @@ Elm.Main.make = function (_elm) {
                  2.0) + Math.pow(h,2.0)));
               }();}
          _E.Case($moduleName,
-         "between lines 52 and 54");
+         "between lines 67 and 69");
       }();
    });
    var facebookIcon = function (_v4) {
@@ -59,33 +59,32 @@ Elm.Main.make = function (_elm) {
               5.5e-2)),
               "./resources/facebook.png")));}
          _E.Case($moduleName,
-         "between lines 31 and 33");
+         "between lines 47 and 49");
       }();
    };
    var bannerBg = function (_v8) {
       return function () {
          switch (_v8.ctor)
          {case "_Tuple2":
-            return $Graphics$Element.opacity(0.5)($Graphics$Element.color($Color.black)(A3($Graphics$Element.container,
+            return $Graphics$Element.opacity(1)($Graphics$Element.color($Color.black)(A2($Graphics$Element.spacer,
               _v8._0,
               $Basics.ceiling(A2(percentOfDiag,
               {ctor: "_Tuple2"
               ,_0: _v8._0
               ,_1: _v8._1},
-              6.5e-2)),
-              $Graphics$Element.midTop)($Text.plainText(""))));}
+              6.5e-2)))));}
          _E.Case($moduleName,
-         "on line 17, column 19 to 122");
+         "on line 33, column 19 to 93");
       }();
    };
    var linkStyle = F2(function (w,
    h) {
       return {_: {}
-             ,bold: false
+             ,bold: true
              ,color: $Color.white
              ,height: $Maybe.Just(A2(percentOfDiag,
              {ctor: "_Tuple2",_0: w,_1: h},
-             5.0e-2))
+             4.2e-2))
              ,italic: true
              ,line: $Maybe.Nothing
              ,typeface: _L.fromArray(["century gothic"
@@ -112,33 +111,59 @@ Elm.Main.make = function (_elm) {
                                          ,_0: _v12._0
                                          ,_1: _v12._1})]));}
          _E.Case($moduleName,
-         "between lines 21 and 27");
+         "between lines 37 and 43");
       }();
    };
    var banner = function (_v16) {
       return function () {
          switch (_v16.ctor)
          {case "_Tuple2":
-            return $Graphics$Element.layers(_L.fromArray([$Graphics$Element.opacity(1.0)(A3($Graphics$Element.fittedImage,
-                                                         _v16._0,
-                                                         _v16._1,
-                                                         "./resources/jo-0.jpg"))
-                                                         ,bannerBg({ctor: "_Tuple2"
+            return $Graphics$Element.layers(_L.fromArray([bannerBg({ctor: "_Tuple2"
                                                                    ,_0: _v16._0
                                                                    ,_1: _v16._1})
                                                          ,bannerText({ctor: "_Tuple2"
                                                                      ,_0: _v16._0
                                                                      ,_1: _v16._1})]));}
          _E.Case($moduleName,
-         "between lines 37 and 41");
+         "between lines 53 and 56");
+      }();
+   };
+   var content = function (_v20) {
+      return function () {
+         switch (_v20.ctor)
+         {case "_Tuple2":
+            return function () {
+                 var heightMinusBanner = _v20._1 - $Graphics$Element.heightOf(banner({ctor: "_Tuple2"
+                                                                                     ,_0: _v20._0
+                                                                                     ,_1: _v20._1}));
+                 var widthLeftSplit = $Basics.floor($Basics.toFloat(heightMinusBanner) / 0.809);
+                 var heightBody = heightMinusBanner;
+                 return A2($Graphics$Element.flow,
+                 $Graphics$Element.down,
+                 _L.fromArray([banner({ctor: "_Tuple2"
+                                      ,_0: _v20._0
+                                      ,_1: _v20._1})
+                              ,A2($Graphics$Element.flow,
+                              $Graphics$Element.right,
+                              _L.fromArray([A2($Graphics$Element.flow,
+                                           $Graphics$Element.down,
+                                           _L.fromArray([$Graphics$Element.color($Color.red)($Graphics$Element.spacer(widthLeftSplit)(heightBody / 2 | 0))
+                                                        ,$Graphics$Element.color($Color.blue)($Graphics$Element.spacer(widthLeftSplit)(heightBody / 2 | 0))]))
+                                           ,$Graphics$Element.color($Color.yellow)(A2($Graphics$Element.spacer,
+                                           _v20._0 - widthLeftSplit,
+                                           $Basics.floor($Basics.toFloat(heightMinusBanner))))]))]));
+              }();}
+         _E.Case($moduleName,
+         "between lines 18 and 30");
       }();
    };
    var main = A2($Signal._op["<~"],
-   banner,
+   content,
    $Window.dimensions);
    _elm.Main.values = {_op: _op
-                      ,main: main
                       ,linkStyle: linkStyle
+                      ,main: main
+                      ,content: content
                       ,bannerBg: bannerBg
                       ,bannerText: bannerText
                       ,facebookIcon: facebookIcon

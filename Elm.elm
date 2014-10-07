@@ -2,19 +2,35 @@ import Maybe
 import Text
 import Window
 
-main = banner <~ Window.dimensions
-
 linkStyle : Int -> Int -> Text.Style
 linkStyle w h = { typeface = ["century gothic", "sans-serif"]
-                , height = Just <| percentOfDiag (w,h) 0.05
+                , height = Just <| percentOfDiag (w,h) 0.042
                 , color = white
-                , bold = False
+                , bold = True
                 , italic = True
                 , line = Nothing
                 }
 
+main = content <~ Window.dimensions
+
+content : (Int, Int) -> Element
+content (w, h) =
+  let heightMinusBanner = h - (heightOf <| banner (w,h))
+      widthLeftSplit = floor <| toFloat heightMinusBanner / 0.809 -- golden ratio
+      heightBody = heightMinusBanner
+  in flow down
+       [ banner (w,h)
+       , flow right
+           [ flow down
+               [ color red <| spacer widthLeftSplit <| heightBody // 2
+               , color blue <| spacer widthLeftSplit <| heightBody // 2
+               ]
+           , color yellow <| spacer (w - widthLeftSplit) (floor <| toFloat heightMinusBanner)
+           ]
+       ]
+
 bannerBg : (Int, Int) -> Element
-bannerBg (w, h) = opacity 0.5 <| color black <| container w (ceiling <| percentOfDiag (w,h) 0.065) midTop <| plainText ""
+bannerBg (w, h) = opacity 1 <| color black <| spacer w (ceiling <| percentOfDiag (w,h) 0.065)
 
 bannerText : (Int, Int) -> Element
 bannerText (w, h) =
@@ -35,8 +51,7 @@ facebookIcon (w, h) =
 banner : (Int, Int) -> Element
 banner (w, h) =
   layers
-    [ opacity 1.0 <| fittedImage w h "./resources/jo-0.jpg"
-    , bannerBg (w, h)
+    [ bannerBg (w, h)
     , bannerText (w, h)
     ]
 
