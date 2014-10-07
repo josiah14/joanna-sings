@@ -18,86 +18,131 @@ Elm.Main.make = function (_elm) {
    $Signal = Elm.Signal.make(_elm),
    $Text = Elm.Text.make(_elm),
    $Window = Elm.Window.make(_elm);
-   var banner = function (_v0) {
+   var percentOfDiag = F2(function (_v0,
+   percentage) {
       return function () {
          switch (_v0.ctor)
          {case "_Tuple2":
+            return function () {
+                 var h = $Basics.toFloat(_v0._1);
+                 var w = $Basics.toFloat(_v0._0);
+                 return F2(function (x,y) {
+                    return x * y;
+                 })(percentage)($Basics.sqrt(Math.pow(w,
+                 2.0) + Math.pow(h,2.0)));
+              }();}
+         _E.Case($moduleName,
+         "between lines 52 and 54");
+      }();
+   });
+   var facebookIcon = function (_v4) {
+      return function () {
+         switch (_v4.ctor)
+         {case "_Tuple2":
+            return A3($Graphics$Element.container,
+              $Basics.floor($Basics.toFloat(_v4._0) * 0.14),
+              $Basics.ceiling(A2(percentOfDiag,
+              {ctor: "_Tuple2"
+              ,_0: _v4._0
+              ,_1: _v4._1},
+              6.0e-2)),
+              $Graphics$Element.midRight)($Graphics$Element.link("https://www.facebook.com/joanna.carey2")(A3($Graphics$Element.fittedImage,
+              $Basics.floor(A2(percentOfDiag,
+              {ctor: "_Tuple2"
+              ,_0: _v4._0
+              ,_1: _v4._1},
+              5.5e-2)),
+              $Basics.floor(A2(percentOfDiag,
+              {ctor: "_Tuple2"
+              ,_0: _v4._0
+              ,_1: _v4._1},
+              5.5e-2)),
+              "./resources/facebook.png")));}
+         _E.Case($moduleName,
+         "between lines 31 and 33");
+      }();
+   };
+   var bannerBg = function (_v8) {
+      return function () {
+         switch (_v8.ctor)
+         {case "_Tuple2":
             return $Graphics$Element.opacity(0.5)($Graphics$Element.color($Color.black)(A3($Graphics$Element.container,
-              _v0._0,
-              $Basics.ceiling($Basics.sqrt(Math.pow($Basics.toFloat(_v0._1),
-              2.0) + Math.pow($Basics.toFloat(_v0._0),
-              2.0)) / 15),
+              _v8._0,
+              $Basics.ceiling(A2(percentOfDiag,
+              {ctor: "_Tuple2"
+              ,_0: _v8._0
+              ,_1: _v8._1},
+              6.5e-2)),
               $Graphics$Element.midTop)($Text.plainText(""))));}
          _E.Case($moduleName,
-         "on line 17, column 17 to 147");
+         "on line 17, column 19 to 122");
       }();
    };
    var linkStyle = F2(function (w,
    h) {
       return {_: {}
-             ,bold: true
+             ,bold: false
              ,color: $Color.white
-             ,height: $Maybe.Just($Basics.sqrt(Math.pow($Basics.toFloat(h),
-             2.0) + Math.pow($Basics.toFloat(w),
-             2.0)) / 35.0)
-             ,italic: false
+             ,height: $Maybe.Just(A2(percentOfDiag,
+             {ctor: "_Tuple2",_0: w,_1: h},
+             5.0e-2))
+             ,italic: true
              ,line: $Maybe.Nothing
-             ,typeface: _L.fromArray(["Tahoma"])};
+             ,typeface: _L.fromArray(["century gothic"
+                                     ,"sans-serif"])};
    });
-   var bannerText = function (_v4) {
+   var bannerText = function (_v12) {
       return function () {
-         switch (_v4.ctor)
+         switch (_v12.ctor)
          {case "_Tuple2":
             return A2($Graphics$Element.flow,
-              $Graphics$Element.down,
+              $Graphics$Element.right,
               _L.fromArray([A4($Graphics$Element.container,
-                           _v4._0,
-                           $Basics.ceiling($Basics.sqrt(Math.pow($Basics.toFloat(_v4._1),
-                           2.0) + Math.pow($Basics.toFloat(_v4._0),
-                           2.0)) / 33.0),
-                           $Graphics$Element.midTop,
-                           $Text.centered($Text.style(A2(linkStyle,
-                           _v4._0,
-                           _v4._1))($Text.toText("Joanna Berkebile"))))
-                           ,A4($Graphics$Element.container,
-                           _v4._0,
-                           $Basics.ceiling($Basics.sqrt(Math.pow($Basics.toFloat(_v4._1),
-                           2.0) + Math.pow($Basics.toFloat(_v4._0),
-                           2.0)) / 25.0),
-                           $Graphics$Element.middle,
-                           $Text.centered($Text.height($Basics.sqrt(Math.pow($Basics.toFloat(_v4._1),
-                           2.0) + Math.pow($Basics.toFloat(_v4._0),
-                           2.0)) / 45.0)($Text.color($Color.white)($Text.toText("Professional live singer and voice instructor")))))]));}
+                           $Basics.floor($Basics.toFloat(_v12._0) * 0.85),
+                           $Basics.ceiling(A2(percentOfDiag,
+                           {ctor: "_Tuple2"
+                           ,_0: _v12._0
+                           ,_1: _v12._1},
+                           6.0e-2)),
+                           $Graphics$Element.midLeft,
+                           $Text.leftAligned($Text.style(A2(linkStyle,
+                           _v12._0,
+                           _v12._1))($Text.toText(" Joanna Berkebile"))))
+                           ,facebookIcon({ctor: "_Tuple2"
+                                         ,_0: _v12._0
+                                         ,_1: _v12._1})]));}
          _E.Case($moduleName,
-         "between lines 20 and 28");
+         "between lines 21 and 27");
       }();
    };
-   var content = function (_v8) {
+   var banner = function (_v16) {
       return function () {
-         switch (_v8.ctor)
+         switch (_v16.ctor)
          {case "_Tuple2":
             return $Graphics$Element.layers(_L.fromArray([$Graphics$Element.opacity(1.0)(A3($Graphics$Element.fittedImage,
-                                                         _v8._0,
-                                                         _v8._1,
+                                                         _v16._0,
+                                                         _v16._1,
                                                          "./resources/jo-0.jpg"))
-                                                         ,banner({ctor: "_Tuple2"
-                                                                 ,_0: _v8._0
-                                                                 ,_1: _v8._1})
+                                                         ,bannerBg({ctor: "_Tuple2"
+                                                                   ,_0: _v16._0
+                                                                   ,_1: _v16._1})
                                                          ,bannerText({ctor: "_Tuple2"
-                                                                     ,_0: _v8._0
-                                                                     ,_1: _v8._1})]));}
+                                                                     ,_0: _v16._0
+                                                                     ,_1: _v16._1})]));}
          _E.Case($moduleName,
-         "between lines 32 and 36");
+         "between lines 37 and 41");
       }();
    };
    var main = A2($Signal._op["<~"],
-   content,
+   banner,
    $Window.dimensions);
    _elm.Main.values = {_op: _op
                       ,main: main
                       ,linkStyle: linkStyle
-                      ,banner: banner
+                      ,bannerBg: bannerBg
                       ,bannerText: bannerText
-                      ,content: content};
+                      ,facebookIcon: facebookIcon
+                      ,banner: banner
+                      ,percentOfDiag: percentOfDiag};
    return _elm.Main.values;
 };
