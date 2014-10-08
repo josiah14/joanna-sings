@@ -16,23 +16,23 @@ main = content <~ Window.dimensions
 content : (Int, Int) -> Element
 content (w, h) =
   let heightMinusBanner = h - (heightOf <| banner (w,h))
-      mainSplitPosition = floor <| toFloat (if w > h then w else h) * (if w > h then 0.618 else 0.382)
-      secondarySplitPosition = (if w > h then heightMinusBanner else w) // 2
+      mainSplit = floor <| (if w > h then toFloat w * 0.618 else toFloat h * 0.382) -- golden ratio
+      subSplit = (if w > h then heightMinusBanner else w) // 2
       body =
         if w > h
         then flow right
                [ flow down
-                   [ color red <| container mainSplitPosition secondarySplitPosition middle <| plainText "Voice Coaching"
-                   , color blue <| container  mainSplitPosition secondarySplitPosition middle <| plainText "Experience"
+                   [ color red <| container mainSplit subSplit middle <| plainText "Voice Coaching"
+                   , color blue <| container  mainSplit subSplit middle <| plainText "Experience"
                    ]
-               , color yellow <| container  (w - mainSplitPosition) (floor <| toFloat heightMinusBanner) middle <| plainText "Contact"
+               , color yellow <| container  (w - mainSplit) (floor <| toFloat heightMinusBanner) middle <| plainText "Contact"
                ]
         else flow down
                [ flow right
-                   [ color red <| container  secondarySplitPosition mainSplitPosition middle <| plainText "Voice Coaching"
-                   , color blue <| container  secondarySplitPosition mainSplitPosition middle <| plainText "Experience"
+                   [ color red <| container  subSplit mainSplit middle <| plainText "Voice Coaching"
+                   , color blue <| container  subSplit mainSplit middle <| plainText "Experience"
                    ]
-               , color yellow <| container  w (heightMinusBanner - mainSplitPosition) middle <| plainText "Contact"
+               , color yellow <| container  w (heightMinusBanner - mainSplit) middle <| plainText "Contact"
                ]
   in flow down
        [ banner (w,h)

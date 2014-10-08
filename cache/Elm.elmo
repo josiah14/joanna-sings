@@ -136,13 +136,12 @@ Elm.Main.make = function (_elm) {
          switch (_v20.ctor)
          {case "_Tuple2":
             return function () {
-                 var mainSplitPosition = $Basics.floor($Basics.toFloat(_U.cmp(_v20._0,
-                 _v20._1) > 0 ? _v20._0 : _v20._1) * (_U.cmp(_v20._0,
-                 _v20._1) > 0 ? 0.618 : 0.382));
+                 var mainSplit = $Basics.floor(_U.cmp(_v20._0,
+                 _v20._1) > 0 ? $Basics.toFloat(_v20._0) * 0.618 : $Basics.toFloat(_v20._1) * 0.382);
                  var heightMinusBanner = _v20._1 - $Graphics$Element.heightOf(banner({ctor: "_Tuple2"
                                                                                      ,_0: _v20._0
                                                                                      ,_1: _v20._1}));
-                 var secondarySplitPosition = (_U.cmp(_v20._0,
+                 var subSplit = (_U.cmp(_v20._0,
                  _v20._1) > 0 ? heightMinusBanner : _v20._0) / 2 | 0;
                  var body = _U.cmp(_v20._0,
                  _v20._1) > 0 ? A2($Graphics$Element.flow,
@@ -150,31 +149,31 @@ Elm.Main.make = function (_elm) {
                  _L.fromArray([A2($Graphics$Element.flow,
                               $Graphics$Element.down,
                               _L.fromArray([$Graphics$Element.color($Color.red)(A3($Graphics$Element.container,
-                                           mainSplitPosition,
-                                           secondarySplitPosition,
+                                           mainSplit,
+                                           subSplit,
                                            $Graphics$Element.middle)($Text.plainText("Voice Coaching")))
                                            ,$Graphics$Element.color($Color.blue)(A3($Graphics$Element.container,
-                                           mainSplitPosition,
-                                           secondarySplitPosition,
+                                           mainSplit,
+                                           subSplit,
                                            $Graphics$Element.middle)($Text.plainText("Experience")))]))
                               ,$Graphics$Element.color($Color.yellow)(A3($Graphics$Element.container,
-                              _v20._0 - mainSplitPosition,
+                              _v20._0 - mainSplit,
                               $Basics.floor($Basics.toFloat(heightMinusBanner)),
                               $Graphics$Element.middle)($Text.plainText("Contact")))])) : A2($Graphics$Element.flow,
                  $Graphics$Element.down,
                  _L.fromArray([A2($Graphics$Element.flow,
                               $Graphics$Element.right,
                               _L.fromArray([$Graphics$Element.color($Color.red)(A3($Graphics$Element.container,
-                                           secondarySplitPosition,
-                                           mainSplitPosition,
+                                           subSplit,
+                                           mainSplit,
                                            $Graphics$Element.middle)($Text.plainText("Voice Coaching")))
                                            ,$Graphics$Element.color($Color.blue)(A3($Graphics$Element.container,
-                                           secondarySplitPosition,
-                                           mainSplitPosition,
+                                           subSplit,
+                                           mainSplit,
                                            $Graphics$Element.middle)($Text.plainText("Experience")))]))
                               ,$Graphics$Element.color($Color.yellow)(A3($Graphics$Element.container,
                               _v20._0,
-                              heightMinusBanner - mainSplitPosition,
+                              heightMinusBanner - mainSplit,
                               $Graphics$Element.middle)($Text.plainText("Contact")))]));
                  return A2($Graphics$Element.flow,
                  $Graphics$Element.down,
