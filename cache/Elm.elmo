@@ -34,7 +34,7 @@ Elm.Main.make = function (_elm) {
                  2.0) + Math.pow(h,2.0)));
               }();}
          _E.Case($moduleName,
-         "between lines 129 and 131");
+         "between lines 127 and 129");
       }();
    });
    var facebookIcon = function (_v4) {
@@ -61,7 +61,7 @@ Elm.Main.make = function (_elm) {
               6.0e-2)),
               "./resources/facebook.png")));}
          _E.Case($moduleName,
-         "between lines 109 and 111");
+         "between lines 107 and 109");
       }();
    };
    var bannerBg = function (_v8) {
@@ -76,7 +76,7 @@ Elm.Main.make = function (_elm) {
               ,_1: _v8._1},
               7.5e-2)))));}
          _E.Case($moduleName,
-         "on line 94, column 19 to 93");
+         "on line 92, column 19 to 93");
       }();
    };
    var sectionTextHeight = function (_v12) {
@@ -148,9 +148,11 @@ Elm.Main.make = function (_elm) {
                          _v20._1) > 0 ? $Graphics$Element.color(bgColor)(A3($Graphics$Element.container,
                          _v21._0,
                          _v21._1,
-                         $Graphics$Element.middle)($Text.centered($Text.style(sectionTextStyle({ctor: "_Tuple2"
-                                                                                               ,_0: _v21._0
-                                                                                               ,_1: _v21._1}))($Text.toText(label))))) : function () {
+                         $Graphics$Element.middle)(A2(sectionText,
+                         {ctor: "_Tuple2"
+                         ,_0: _v21._0
+                         ,_1: _v21._1},
+                         label))) : function () {
                             var labelParts = A2($String.split,
                             " ",
                             label);
@@ -172,10 +174,10 @@ Elm.Main.make = function (_elm) {
                          }();
                       }();}
                  _E.Case($moduleName,
-                 "between lines 72 and 83");
+                 "between lines 72 and 81");
               }();}
          _E.Case($moduleName,
-         "between lines 72 and 83");
+         "between lines 72 and 81");
       }();
    });
    var voiceCoachingSection = F2(function (_v28,
@@ -196,10 +198,10 @@ Elm.Main.make = function (_elm) {
                       "Voice Coaching",
                       $Color.red);}
                  _E.Case($moduleName,
-                 "on line 87, column 3 to 86");
+                 "on line 85, column 3 to 86");
               }();}
          _E.Case($moduleName,
-         "on line 87, column 3 to 86");
+         "on line 85, column 3 to 86");
       }();
    });
    var experienceSection = F2(function (_v36,
@@ -220,10 +222,10 @@ Elm.Main.make = function (_elm) {
                       "Experience",
                       $Color.blue);}
                  _E.Case($moduleName,
-                 "on line 91, column 3 to 83");
+                 "on line 89, column 3 to 83");
               }();}
          _E.Case($moduleName,
-         "on line 91, column 3 to 83");
+         "on line 89, column 3 to 83");
       }();
    });
    var firstSection = F2(function (_v44,
@@ -306,7 +308,7 @@ Elm.Main.make = function (_elm) {
                                             ,_1: _v52._1})]));
               }();}
          _E.Case($moduleName,
-         "between lines 98 and 105");
+         "between lines 96 and 103");
       }();
    };
    var banner = function (_v56) {
@@ -320,7 +322,7 @@ Elm.Main.make = function (_elm) {
                                                                      ,_0: _v56._0
                                                                      ,_1: _v56._1})]));}
          _E.Case($moduleName,
-         "between lines 115 and 118");
+         "between lines 113 and 116");
       }();
    };
    var content = function (_v60) {
@@ -368,9 +370,9 @@ Elm.Main.make = function (_elm) {
    content,
    $Window.dimensions);
    _elm.Main.values = {_op: _op
+                      ,main: main
                       ,linkStyle: linkStyle
                       ,sectionTextStyle: sectionTextStyle
-                      ,main: main
                       ,content: content
                       ,sectionTextHeight: sectionTextHeight
                       ,sectionText: sectionText

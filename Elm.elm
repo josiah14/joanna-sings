@@ -72,9 +72,7 @@ subSection (winWidth, winHeight) (sectionWidth, sectionHeight) label bgColor =
   let textHeight = sectionTextHeight (sectionWidth, sectionHeight)
   in if winWidth > winHeight
      then color bgColor <| container sectionWidth sectionHeight middle
-            <| centered
-            <| Text.style (sectionTextStyle (sectionWidth, sectionHeight))
-            <| toText label
+            <| sectionText (sectionWidth, sectionHeight) label
      else
        let labelParts = String.split " " label
        in color bgColor <| container sectionWidth sectionHeight middle <| flow down
