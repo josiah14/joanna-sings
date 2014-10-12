@@ -20,77 +20,19 @@ Elm.Main.make = function (_elm) {
    $Signal = Elm.Signal.make(_elm),
    $String = Elm.String.make(_elm),
    $Text = Elm.Text.make(_elm),
+   $Website$Reusables = Elm.Website.Reusables.make(_elm),
    $Window = Elm.Window.make(_elm);
-   var percentOfDiag = F2(function (_v0,
-   percentage) {
+   var sectionTextHeight = function (_v0) {
       return function () {
          switch (_v0.ctor)
          {case "_Tuple2":
-            return function () {
-                 var h = $Basics.toFloat(_v0._1);
-                 var w = $Basics.toFloat(_v0._0);
-                 return F2(function (x,y) {
-                    return x * y;
-                 })(percentage)($Basics.sqrt(Math.pow(w,
-                 2.0) + Math.pow(h,2.0)));
-              }();}
+            return A2($Website$Reusables.percentOfDiag,
+              {ctor: "_Tuple2"
+              ,_0: _v0._0
+              ,_1: _v0._1},
+              7.5e-2);}
          _E.Case($moduleName,
-         "between lines 127 and 129");
-      }();
-   });
-   var facebookIcon = function (_v4) {
-      return function () {
-         switch (_v4.ctor)
-         {case "_Tuple2":
-            return A3($Graphics$Element.container,
-              $Basics.floor($Basics.toFloat(_v4._0) * 0.115),
-              $Basics.ceiling(A2(percentOfDiag,
-              {ctor: "_Tuple2"
-              ,_0: _v4._0
-              ,_1: _v4._1},
-              7.0e-2)),
-              $Graphics$Element.midRight)($Graphics$Element.link("https://www.facebook.com/joanna.carey2")(A3($Graphics$Element.image,
-              $Basics.floor(A2(percentOfDiag,
-              {ctor: "_Tuple2"
-              ,_0: _v4._0
-              ,_1: _v4._1},
-              6.0e-2)),
-              $Basics.floor(A2(percentOfDiag,
-              {ctor: "_Tuple2"
-              ,_0: _v4._0
-              ,_1: _v4._1},
-              6.0e-2)),
-              "./resources/facebook.png")));}
-         _E.Case($moduleName,
-         "between lines 107 and 109");
-      }();
-   };
-   var bannerBg = function (_v8) {
-      return function () {
-         switch (_v8.ctor)
-         {case "_Tuple2":
-            return $Graphics$Element.opacity(1)($Graphics$Element.color($Color.black)(A2($Graphics$Element.spacer,
-              _v8._0,
-              $Basics.ceiling(A2(percentOfDiag,
-              {ctor: "_Tuple2"
-              ,_0: _v8._0
-              ,_1: _v8._1},
-              7.5e-2)))));}
-         _E.Case($moduleName,
-         "on line 92, column 19 to 93");
-      }();
-   };
-   var sectionTextHeight = function (_v12) {
-      return function () {
-         switch (_v12.ctor)
-         {case "_Tuple2":
-            return A2(percentOfDiag,
-              {ctor: "_Tuple2"
-              ,_0: _v12._0
-              ,_1: _v12._1},
-              9.0e-2);}
-         _E.Case($moduleName,
-         "on line 41, column 28 to 53");
+         "on line 22, column 28 to 54");
       }();
    };
    var sectionTextStyle = function (dims) {
@@ -107,256 +49,192 @@ Elm.Main.make = function (_elm) {
    str) {
       return $Text.centered($Text.style(sectionTextStyle(dims))($Text.toText(str)));
    });
-   var contactSection = F3(function (_v16,
-   splitWidth,
-   heightMinusBanner) {
+   var contactSection = F2(function (_v4,
+   splitWidth) {
       return function () {
-         switch (_v16.ctor)
+         switch (_v4.ctor)
          {case "_Tuple2":
             return function () {
-                 var sectionHeight = _U.cmp(_v16._0,
-                 _v16._1) > 0 ? $Basics.floor($Basics.toFloat(heightMinusBanner)) : heightMinusBanner - splitWidth;
-                 var sectionWidth = _U.cmp(_v16._0,
-                 _v16._1) > 0 ? _v16._0 - splitWidth : _v16._0;
-                 return $Graphics$Element.color($Color.yellow)(A3($Graphics$Element.container,
+                 var sectionHeight = _U.cmp(_v4._0,
+                 _v4._1) > 0 ? _v4._1 : _v4._1 - splitWidth;
+                 var sectionWidth = _U.cmp(_v4._0,
+                 _v4._1) > 0 ? _v4._0 - splitWidth : _v4._0;
+                 return $Graphics$Element.link("Contact.elm")($Graphics$Element.color($Color.yellow)(A3($Graphics$Element.container,
                  sectionWidth,
                  sectionHeight,
                  $Graphics$Element.middle)(A2(sectionText,
                  {ctor: "_Tuple2"
                  ,_0: sectionWidth
                  ,_1: sectionHeight},
-                 "Contact")));
+                 "Contact"))));
               }();}
          _E.Case($moduleName,
-         "between lines 48 and 52");
+         "between lines 41 and 47");
       }();
    });
-   var subSection = F4(function (_v20,
-   _v21,
+   var subSection = F4(function (_v8,
+   _v9,
    label,
    bgColor) {
       return function () {
-         switch (_v21.ctor)
+         switch (_v9.ctor)
          {case "_Tuple2":
             return function () {
-                 switch (_v20.ctor)
+                 switch (_v8.ctor)
                  {case "_Tuple2":
                     return function () {
                          var textHeight = sectionTextHeight({ctor: "_Tuple2"
-                                                            ,_0: _v21._0
-                                                            ,_1: _v21._1});
-                         return _U.cmp(_v20._0,
-                         _v20._1) > 0 ? $Graphics$Element.color(bgColor)(A3($Graphics$Element.container,
-                         _v21._0,
-                         _v21._1,
+                                                            ,_0: _v9._0
+                                                            ,_1: _v9._1});
+                         return _U.cmp(_v8._0,
+                         _v8._1) > 0 ? $Graphics$Element.color(bgColor)(A3($Graphics$Element.container,
+                         _v9._0,
+                         _v9._1,
                          $Graphics$Element.middle)(A2(sectionText,
                          {ctor: "_Tuple2"
-                         ,_0: _v21._0
-                         ,_1: _v21._1},
+                         ,_0: _v9._0
+                         ,_1: _v9._1},
                          label))) : function () {
                             var labelParts = A2($String.split,
                             " ",
                             label);
                             return $Graphics$Element.color(bgColor)(A3($Graphics$Element.container,
-                            _v21._0,
-                            _v21._1,
+                            _v9._0,
+                            _v9._1,
                             $Graphics$Element.middle)($Graphics$Element.flow($Graphics$Element.down)(A2($List.map,
                             function (str) {
                                return A3($Graphics$Element.container,
-                               _v21._0,
+                               _v9._0,
                                $Basics.ceiling(textHeight + 5),
                                $Graphics$Element.middle)(A2(sectionText,
                                {ctor: "_Tuple2"
-                               ,_0: _v21._0
-                               ,_1: _v21._1},
+                               ,_0: _v9._0
+                               ,_1: _v9._1},
                                str));
                             },
                             labelParts))));
                          }();
                       }();}
                  _E.Case($moduleName,
-                 "between lines 72 and 81");
+                 "between lines 68 and 77");
               }();}
          _E.Case($moduleName,
-         "between lines 72 and 81");
+         "between lines 68 and 77");
       }();
    });
-   var voiceCoachingSection = F2(function (_v28,
-   _v29) {
+   var voiceCoachingSection = F2(function (_v16,
+   _v17) {
       return function () {
-         switch (_v29.ctor)
+         switch (_v17.ctor)
          {case "_Tuple2":
             return function () {
-                 switch (_v28.ctor)
+                 switch (_v16.ctor)
                  {case "_Tuple2":
-                    return A4(subSection,
+                    return $Graphics$Element.link("VoiceCoaching.elm")(A4(subSection,
                       {ctor: "_Tuple2"
-                      ,_0: _v28._0
-                      ,_1: _v28._1},
+                      ,_0: _v16._0
+                      ,_1: _v16._1},
                       {ctor: "_Tuple2"
-                      ,_0: _v29._0
-                      ,_1: _v29._1},
+                      ,_0: _v17._0
+                      ,_1: _v17._1},
                       "Voice Coaching",
-                      $Color.red);}
+                      $Color.red));}
                  _E.Case($moduleName,
-                 "on line 85, column 3 to 86");
+                 "between lines 81 and 82");
               }();}
          _E.Case($moduleName,
-         "on line 85, column 3 to 86");
+         "between lines 81 and 82");
       }();
    });
-   var experienceSection = F2(function (_v36,
-   _v37) {
+   var experienceSection = F2(function (_v24,
+   _v25) {
       return function () {
-         switch (_v37.ctor)
+         switch (_v25.ctor)
          {case "_Tuple2":
             return function () {
-                 switch (_v36.ctor)
+                 switch (_v24.ctor)
                  {case "_Tuple2":
-                    return A4(subSection,
+                    return $Graphics$Element.link("Experience.elm")(A4(subSection,
                       {ctor: "_Tuple2"
-                      ,_0: _v36._0
-                      ,_1: _v36._1},
+                      ,_0: _v24._0
+                      ,_1: _v24._1},
                       {ctor: "_Tuple2"
-                      ,_0: _v37._0
-                      ,_1: _v37._1},
+                      ,_0: _v25._0
+                      ,_1: _v25._1},
                       "Experience",
-                      $Color.blue);}
+                      $Color.blue));}
                  _E.Case($moduleName,
-                 "on line 89, column 3 to 83");
+                 "between lines 86 and 87");
               }();}
          _E.Case($moduleName,
-         "on line 89, column 3 to 83");
+         "between lines 86 and 87");
       }();
    });
-   var firstSection = F2(function (_v44,
-   _v45) {
+   var firstSection = F2(function (_v32,
+   subSectionLength) {
       return function () {
-         switch (_v45.ctor)
+         switch (_v32.ctor)
          {case "_Tuple2":
             return function () {
-                 switch (_v44.ctor)
-                 {case "_Tuple2":
-                    return function () {
-                         var subSectionHeight1 = _U.cmp(_v44._0,
-                         _v44._1) > 0 ? $Basics.ceiling($Basics.toFloat(_v45._1) / 1.618) : _v45._0;
-                         var subSectionWidth1 = _U.cmp(_v44._0,
-                         _v44._1) > 0 ? _v45._0 : $Basics.ceiling($Basics.toFloat(_v45._1) / 1.618);
-                         var subSectionHeight = _U.cmp(_v44._0,
-                         _v44._1) > 0 ? _v45._1 : _v45._0;
-                         var subSectionWidth = _U.cmp(_v44._0,
-                         _v44._1) > 0 ? _v45._0 : _v45._1;
-                         var flowDirection = _U.cmp(_v44._0,
-                         _v44._1) > 0 ? $Graphics$Element.down : $Graphics$Element.right;
-                         return A2($Graphics$Element.flow,
-                         flowDirection,
-                         _L.fromArray([A2(voiceCoachingSection,
-                                      {ctor: "_Tuple2"
-                                      ,_0: _v44._0
-                                      ,_1: _v44._1},
-                                      {ctor: "_Tuple2"
-                                      ,_0: subSectionWidth
-                                      ,_1: subSectionHeight})
-                                      ,A2(experienceSection,
-                                      {ctor: "_Tuple2"
-                                      ,_0: _v44._0
-                                      ,_1: _v44._1},
-                                      {ctor: "_Tuple2"
-                                      ,_0: subSectionWidth1
-                                      ,_1: subSectionHeight1})]));
-                      }();}
-                 _E.Case($moduleName,
-                 "between lines 56 and 68");
-              }();}
-         _E.Case($moduleName,
-         "between lines 56 and 68");
-      }();
-   });
-   var linkStyle = F2(function (w,
-   h) {
-      return {_: {}
-             ,bold: true
-             ,color: $Color.white
-             ,height: $Maybe.Just(A2(percentOfDiag,
-             {ctor: "_Tuple2",_0: w,_1: h},
-             4.5e-2))
-             ,italic: true
-             ,line: $Maybe.Nothing
-             ,typeface: _L.fromArray(["century gothic"
-                                     ,"sans-serif"])};
-   });
-   var bannerText = function (_v52) {
-      return function () {
-         switch (_v52.ctor)
-         {case "_Tuple2":
-            return function () {
-                 var textWidth = $Basics.floor($Basics.toFloat(_v52._0) * 0.88);
+                 var subSectionBreadth = $Basics.floor($Basics.toFloat(_U.cmp(_v32._0,
+                 _v32._1) > 0 ? _v32._1 : _v32._0) * 0.618);
+                 var subSectionWidth = _U.cmp(_v32._0,
+                 _v32._1) > 0 ? subSectionLength : subSectionBreadth;
+                 var subSectionHeight = _U.cmp(_v32._0,
+                 _v32._1) > 0 ? subSectionBreadth : subSectionLength;
+                 var subSectionWidth1 = _U.cmp(_v32._0,
+                 _v32._1) > 0 ? subSectionLength : _v32._0 - subSectionBreadth;
+                 var subSectionHeight1 = _U.cmp(_v32._0,
+                 _v32._1) > 0 ? _v32._1 - subSectionBreadth : subSectionLength;
+                 var flowDirection = _U.cmp(_v32._0,
+                 _v32._1) > 0 ? $Graphics$Element.down : $Graphics$Element.right;
                  return A2($Graphics$Element.flow,
-                 $Graphics$Element.right,
-                 _L.fromArray([A4($Graphics$Element.container,
-                              textWidth,
-                              $Basics.ceiling(A2(percentOfDiag,
+                 flowDirection,
+                 _L.fromArray([A2(voiceCoachingSection,
                               {ctor: "_Tuple2"
-                              ,_0: _v52._0
-                              ,_1: _v52._1},
-                              6.0e-2)),
-                              $Graphics$Element.midLeft,
-                              $Text.leftAligned($Text.style(A2(linkStyle,
-                              _v52._0,
-                              _v52._1))($Text.toText(" Joanna Berkebile"))))
-                              ,facebookIcon({ctor: "_Tuple2"
-                                            ,_0: _v52._0
-                                            ,_1: _v52._1})]));
+                              ,_0: _v32._0
+                              ,_1: _v32._1},
+                              {ctor: "_Tuple2"
+                              ,_0: subSectionWidth
+                              ,_1: subSectionHeight})
+                              ,A2(experienceSection,
+                              {ctor: "_Tuple2"
+                              ,_0: _v32._0
+                              ,_1: _v32._1},
+                              {ctor: "_Tuple2"
+                              ,_0: subSectionWidth1
+                              ,_1: subSectionHeight1})]));
               }();}
          _E.Case($moduleName,
-         "between lines 96 and 103");
+         "between lines 51 and 64");
       }();
-   };
-   var banner = function (_v56) {
+   });
+   var content = function (_v36) {
       return function () {
-         switch (_v56.ctor)
-         {case "_Tuple2":
-            return $Graphics$Element.layers(_L.fromArray([bannerBg({ctor: "_Tuple2"
-                                                                   ,_0: _v56._0
-                                                                   ,_1: _v56._1})
-                                                         ,bannerText({ctor: "_Tuple2"
-                                                                     ,_0: _v56._0
-                                                                     ,_1: _v56._1})]));}
-         _E.Case($moduleName,
-         "between lines 113 and 116");
-      }();
-   };
-   var content = function (_v60) {
-      return function () {
-         switch (_v60.ctor)
+         switch (_v36.ctor)
          {case "_Tuple2":
             return function () {
-                 var mainSplit = $Basics.floor(_U.cmp(_v60._0,
-                 _v60._1) > 0 ? $Basics.toFloat(_v60._0) * 0.618 : $Basics.toFloat(_v60._1) * 0.382);
-                 var thisBanner = banner({ctor: "_Tuple2"
-                                         ,_0: _v60._0
-                                         ,_1: _v60._1});
-                 var heightMinusBanner = _v60._1 - $Graphics$Element.heightOf(thisBanner);
-                 var subSplit = $Basics.floor($Basics.toFloat(_U.cmp(_v60._0,
-                 _v60._1) > 0 ? heightMinusBanner : _v60._0) * 0.618);
+                 var thisBanner = $Website$Reusables.banner({ctor: "_Tuple2"
+                                                            ,_0: _v36._0
+                                                            ,_1: _v36._1});
+                 var heightMinusBanner = _v36._1 - $Graphics$Element.heightOf(thisBanner);
+                 var mainSplit = $Basics.floor(_U.cmp(_v36._0,
+                 heightMinusBanner) > 0 ? $Basics.toFloat(_v36._0) * 0.618 : $Basics.toFloat(_v36._1) * 0.382);
                  var body = function () {
-                    var flowDirection = _U.cmp(_v60._0,
-                    _v60._1) > 0 ? $Graphics$Element.right : $Graphics$Element.down;
+                    var flowDirection = _U.cmp(_v36._0,
+                    heightMinusBanner) > 0 ? $Graphics$Element.right : $Graphics$Element.down;
                     return A2($Graphics$Element.flow,
                     flowDirection,
                     _L.fromArray([A2(firstSection,
                                  {ctor: "_Tuple2"
-                                 ,_0: _v60._0
-                                 ,_1: _v60._1},
+                                 ,_0: _v36._0
+                                 ,_1: heightMinusBanner},
+                                 mainSplit)
+                                 ,A2(contactSection,
                                  {ctor: "_Tuple2"
-                                 ,_0: mainSplit
-                                 ,_1: subSplit})
-                                 ,A3(contactSection,
-                                 {ctor: "_Tuple2"
-                                 ,_0: _v60._0
-                                 ,_1: _v60._1},
-                                 mainSplit,
-                                 heightMinusBanner)]));
+                                 ,_0: _v36._0
+                                 ,_1: heightMinusBanner},
+                                 mainSplit)]));
                  }();
                  return A2($Graphics$Element.flow,
                  $Graphics$Element.down,
@@ -364,7 +242,7 @@ Elm.Main.make = function (_elm) {
                               ,body]));
               }();}
          _E.Case($moduleName,
-         "between lines 27 and 38");
+         "between lines 26 and 34");
       }();
    };
    var main = A2($Signal._op["<~"],
@@ -372,20 +250,211 @@ Elm.Main.make = function (_elm) {
    $Window.dimensions);
    _elm.Main.values = {_op: _op
                       ,main: main
-                      ,linkStyle: linkStyle
                       ,sectionTextStyle: sectionTextStyle
-                      ,content: content
                       ,sectionTextHeight: sectionTextHeight
+                      ,content: content
                       ,sectionText: sectionText
                       ,contactSection: contactSection
                       ,firstSection: firstSection
                       ,subSection: subSection
                       ,voiceCoachingSection: voiceCoachingSection
-                      ,experienceSection: experienceSection
-                      ,bannerBg: bannerBg
-                      ,bannerText: bannerText
-                      ,facebookIcon: facebookIcon
-                      ,banner: banner
-                      ,percentOfDiag: percentOfDiag};
+                      ,experienceSection: experienceSection};
    return _elm.Main.values;
+};Elm.Website = Elm.Website || {};
+Elm.Website.Reusables = Elm.Website.Reusables || {};
+Elm.Website.Reusables.make = function (_elm) {
+   "use strict";
+   _elm.Website = _elm.Website || {};
+   _elm.Website.Reusables = _elm.Website.Reusables || {};
+   if (_elm.Website.Reusables.values)
+   return _elm.Website.Reusables.values;
+   var _op = {},
+   _N = Elm.Native,
+   _U = _N.Utils.make(_elm),
+   _L = _N.List.make(_elm),
+   _A = _N.Array.make(_elm),
+   _E = _N.Error.make(_elm),
+   $moduleName = "Website.Reusables",
+   $Basics = Elm.Basics.make(_elm),
+   $Color = Elm.Color.make(_elm),
+   $Graphics$Element = Elm.Graphics.Element.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $String = Elm.String.make(_elm),
+   $Text = Elm.Text.make(_elm);
+   var percentOfDiag = F2(function (_v0,
+   percentage) {
+      return function () {
+         switch (_v0.ctor)
+         {case "_Tuple2":
+            return function () {
+                 var h = $Basics.toFloat(_v0._1);
+                 var w = $Basics.toFloat(_v0._0);
+                 return F2(function (x,y) {
+                    return x * y;
+                 })(percentage)($Basics.sqrt(Math.pow(w,
+                 2.0) + Math.pow(h,2.0)));
+              }();}
+         _E.Case($moduleName,
+         "between lines 79 and 81");
+      }();
+   });
+   var facebookIcon = function (_v4) {
+      return function () {
+         switch (_v4.ctor)
+         {case "_Tuple2":
+            return A3($Graphics$Element.container,
+              $Basics.floor($Basics.toFloat(_v4._0) * 0.12),
+              $Basics.ceiling(A2(percentOfDiag,
+              {ctor: "_Tuple2"
+              ,_0: _v4._0
+              ,_1: _v4._1},
+              7.0e-2)),
+              $Graphics$Element.midRight)($Graphics$Element.link("https://www.facebook.com/joanna.carey2")(A3($Graphics$Element.image,
+              $Basics.floor(A2(percentOfDiag,
+              {ctor: "_Tuple2"
+              ,_0: _v4._0
+              ,_1: _v4._1},
+              5.8e-2)),
+              $Basics.floor(A2(percentOfDiag,
+              {ctor: "_Tuple2"
+              ,_0: _v4._0
+              ,_1: _v4._1},
+              5.8e-2)),
+              "./resources/facebook.png")));}
+         _E.Case($moduleName,
+         "between lines 40 and 42");
+      }();
+   };
+   var bannerBg = function (_v8) {
+      return function () {
+         switch (_v8.ctor)
+         {case "_Tuple2":
+            return $Graphics$Element.opacity(1)($Graphics$Element.color($Color.black)(A2($Graphics$Element.spacer,
+              _v8._0,
+              $Basics.ceiling(A2(percentOfDiag,
+              {ctor: "_Tuple2"
+              ,_0: _v8._0
+              ,_1: _v8._1},
+              7.0e-2)))));}
+         _E.Case($moduleName,
+         "on line 25, column 19 to 93");
+      }();
+   };
+   var footerStyle = F2(function (w,
+   h) {
+      return {_: {}
+             ,bold: true
+             ,color: $Color.black
+             ,height: $Maybe.Just(A2(percentOfDiag,
+             {ctor: "_Tuple2",_0: w,_1: h},
+             3.0e-2))
+             ,italic: false
+             ,line: $Maybe.Nothing
+             ,typeface: _L.fromArray(["century gothic"
+                                     ,"sans-serif"])};
+   });
+   var footer = F3(function (_v12,
+   leftText,
+   rightText) {
+      return function () {
+         switch (_v12.ctor)
+         {case "_Tuple2":
+            return function () {
+                 var percentage = _U.cmp(_v12._0,
+                 _v12._1) > 0 ? 7.0e-2 : 0.12;
+                 var footerHeight = $Basics.floor(A2(percentOfDiag,
+                 {ctor: "_Tuple2"
+                 ,_0: _v12._0
+                 ,_1: _v12._1},
+                 percentage));
+                 return $Graphics$Element.opacity(1)(A2($Graphics$Element.flow,
+                 $Graphics$Element.right,
+                 _L.fromArray([$Graphics$Element.link(_L.append($String.join("")(A2($String.split,
+                              " ",
+                              leftText)),
+                              ".elm"))($Graphics$Element.color($Color.red)(A3($Graphics$Element.container,
+                              _v12._0 / 2 | 0,
+                              footerHeight,
+                              $Graphics$Element.middle)($Text.centered($Text.style(A2(footerStyle,
+                              _v12._0,
+                              _v12._1))($Text.toText(leftText))))))
+                              ,$Graphics$Element.link(_L.append($String.join("")(A2($String.split,
+                              " ",
+                              rightText)),
+                              ".elm"))($Graphics$Element.color($Color.blue)(A3($Graphics$Element.container,
+                              _v12._0 / 2 | 0,
+                              footerHeight,
+                              $Graphics$Element.middle)($Text.centered($Text.style(A2(footerStyle,
+                              _v12._0,
+                              _v12._1))($Text.toText(rightText))))))])));
+              }();}
+         _E.Case($moduleName,
+         "between lines 54 and 67");
+      }();
+   });
+   var headerStyle = F2(function (w,
+   h) {
+      return {_: {}
+             ,bold: true
+             ,color: $Color.white
+             ,height: $Maybe.Just(A2(percentOfDiag,
+             {ctor: "_Tuple2",_0: w,_1: h},
+             4.2e-2))
+             ,italic: true
+             ,line: $Maybe.Nothing
+             ,typeface: _L.fromArray(["century gothic"
+                                     ,"sans-serif"])};
+   });
+   var bannerText = function (_v16) {
+      return function () {
+         switch (_v16.ctor)
+         {case "_Tuple2":
+            return function () {
+                 var textWidth = $Basics.floor($Basics.toFloat(_v16._0) * 0.87);
+                 return A2($Graphics$Element.flow,
+                 $Graphics$Element.right,
+                 _L.fromArray([A4($Graphics$Element.container,
+                              textWidth,
+                              $Basics.ceiling(A2(percentOfDiag,
+                              {ctor: "_Tuple2"
+                              ,_0: _v16._0
+                              ,_1: _v16._1},
+                              6.0e-2)),
+                              $Graphics$Element.midLeft,
+                              $Text.leftAligned($Text.style(A2(headerStyle,
+                              _v16._0,
+                              _v16._1))($Text.toText(" Joanna Berkebile"))))
+                              ,facebookIcon({ctor: "_Tuple2"
+                                            ,_0: _v16._0
+                                            ,_1: _v16._1})]));
+              }();}
+         _E.Case($moduleName,
+         "between lines 29 and 36");
+      }();
+   };
+   var banner = function (_v20) {
+      return function () {
+         switch (_v20.ctor)
+         {case "_Tuple2":
+            return $Graphics$Element.link("Elm.elm")($Graphics$Element.layers(_L.fromArray([bannerBg({ctor: "_Tuple2"
+                                                                                                     ,_0: _v20._0
+                                                                                                     ,_1: _v20._1})
+                                                                                           ,bannerText({ctor: "_Tuple2"
+                                                                                                       ,_0: _v20._0
+                                                                                                       ,_1: _v20._1})])));}
+         _E.Case($moduleName,
+         "between lines 46 and 50");
+      }();
+   };
+   _elm.Website.Reusables.values = {_op: _op
+                                   ,headerStyle: headerStyle
+                                   ,footerStyle: footerStyle
+                                   ,bannerBg: bannerBg
+                                   ,bannerText: bannerText
+                                   ,facebookIcon: facebookIcon
+                                   ,banner: banner
+                                   ,footer: footer
+                                   ,percentOfDiag: percentOfDiag};
+   return _elm.Website.Reusables.values;
 };</script></head><body><script type="text/javascript">Elm.fullscreen(Elm.Main)</script><noscript></noscript></body></html>

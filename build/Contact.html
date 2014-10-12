@@ -1,0 +1,310 @@
+<!DOCTYPE HTML>
+<html><head><meta charset="UTF-8"><title>Contact</title><script type="text/javascript" src="elm-runtime.js"></script><script type="text/javascript">Elm.Main = Elm.Main || {};
+Elm.Main.make = function (_elm) {
+   "use strict";
+   _elm.Main = _elm.Main || {};
+   if (_elm.Main.values)
+   return _elm.Main.values;
+   var _op = {},
+   _N = Elm.Native,
+   _U = _N.Utils.make(_elm),
+   _L = _N.List.make(_elm),
+   _A = _N.Array.make(_elm),
+   _E = _N.Error.make(_elm),
+   $moduleName = "Main",
+   $Graphics$Element = Elm.Graphics.Element.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $Text = Elm.Text.make(_elm),
+   $Website$ContentPageSkeleton = Elm.Website.ContentPageSkeleton.make(_elm),
+   $Window = Elm.Window.make(_elm);
+   var markdownText = $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><h2>Experience</h2>\n<p>Joanna lives in Kansas City and her phone number is 814-555-5555.</p>\n<p>her e-mail is joanna.berkebile@joannaisawesome.com</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+   "9:16");
+   var main = A2($Signal._op["<~"],
+   A2($Website$ContentPageSkeleton.content,
+   "Experience",
+   markdownText),
+   $Window.dimensions);
+   _elm.Main.values = {_op: _op
+                      ,main: main
+                      ,markdownText: markdownText};
+   return _elm.Main.values;
+};Elm.Website = Elm.Website || {};
+Elm.Website.ContentPageSkeleton = Elm.Website.ContentPageSkeleton || {};
+Elm.Website.ContentPageSkeleton.make = function (_elm) {
+   "use strict";
+   _elm.Website = _elm.Website || {};
+   _elm.Website.ContentPageSkeleton = _elm.Website.ContentPageSkeleton || {};
+   if (_elm.Website.ContentPageSkeleton.values)
+   return _elm.Website.ContentPageSkeleton.values;
+   var _op = {},
+   _N = Elm.Native,
+   _U = _N.Utils.make(_elm),
+   _L = _N.List.make(_elm),
+   _A = _N.Array.make(_elm),
+   _E = _N.Error.make(_elm),
+   $moduleName = "Website.ContentPageSkeleton",
+   $Basics = Elm.Basics.make(_elm),
+   $Graphics$Element = Elm.Graphics.Element.make(_elm),
+   $Website$Reusables = Elm.Website.Reusables.make(_elm);
+   var content = F3(function (currentPage,
+   markdownText,
+   _v0) {
+      return function () {
+         switch (_v0.ctor)
+         {case "_Tuple2":
+            return function () {
+                 var body = function (_v4) {
+                    return function () {
+                       switch (_v4.ctor)
+                       {case "_Tuple2":
+                          return A3($Graphics$Element.container,
+                            _v4._0,
+                            _v4._1,
+                            $Graphics$Element.middle)(A4($Graphics$Element.container,
+                            $Basics.floor($Basics.toFloat(_v4._0) * 0.8),
+                            _v4._1,
+                            $Graphics$Element.middle,
+                            A2($Graphics$Element.width,
+                            $Basics.floor($Basics.toFloat(_v4._0) * 0.8),
+                            markdownText)));}
+                       _E.Case($moduleName,
+                       "on line 19, column 9 to 127");
+                    }();
+                 };
+                 var pageFooter = function () {
+                    var rightText = function () {
+                       switch (currentPage)
+                       {case "Contact":
+                          return "Experience";}
+                       return "Contact";
+                    }();
+                    var leftText = function () {
+                       switch (currentPage)
+                       {case "Voice Coaching":
+                          return "Experience";}
+                       return "Voice Coaching";
+                    }();
+                    return A3($Website$Reusables.footer,
+                    {ctor: "_Tuple2"
+                    ,_0: _v0._0
+                    ,_1: _v0._1},
+                    leftText,
+                    rightText);
+                 }();
+                 var pageHeader = $Website$Reusables.banner({ctor: "_Tuple2"
+                                                            ,_0: _v0._0
+                                                            ,_1: _v0._1});
+                 var bodyHeight = _v0._1 - $Graphics$Element.heightOf(pageHeader) - $Graphics$Element.heightOf(pageFooter);
+                 return A2($Graphics$Element.flow,
+                 $Graphics$Element.down,
+                 _L.fromArray([pageHeader
+                              ,body({ctor: "_Tuple2"
+                                    ,_0: _v0._0
+                                    ,_1: bodyHeight})
+                              ,pageFooter]));
+              }();}
+         _E.Case($moduleName,
+         "between lines 8 and 24");
+      }();
+   });
+   _elm.Website.ContentPageSkeleton.values = {_op: _op
+                                             ,content: content};
+   return _elm.Website.ContentPageSkeleton.values;
+};Elm.Website = Elm.Website || {};
+Elm.Website.Reusables = Elm.Website.Reusables || {};
+Elm.Website.Reusables.make = function (_elm) {
+   "use strict";
+   _elm.Website = _elm.Website || {};
+   _elm.Website.Reusables = _elm.Website.Reusables || {};
+   if (_elm.Website.Reusables.values)
+   return _elm.Website.Reusables.values;
+   var _op = {},
+   _N = Elm.Native,
+   _U = _N.Utils.make(_elm),
+   _L = _N.List.make(_elm),
+   _A = _N.Array.make(_elm),
+   _E = _N.Error.make(_elm),
+   $moduleName = "Website.Reusables",
+   $Basics = Elm.Basics.make(_elm),
+   $Color = Elm.Color.make(_elm),
+   $Graphics$Element = Elm.Graphics.Element.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $String = Elm.String.make(_elm),
+   $Text = Elm.Text.make(_elm);
+   var percentOfDiag = F2(function (_v0,
+   percentage) {
+      return function () {
+         switch (_v0.ctor)
+         {case "_Tuple2":
+            return function () {
+                 var h = $Basics.toFloat(_v0._1);
+                 var w = $Basics.toFloat(_v0._0);
+                 return F2(function (x,y) {
+                    return x * y;
+                 })(percentage)($Basics.sqrt(Math.pow(w,
+                 2.0) + Math.pow(h,2.0)));
+              }();}
+         _E.Case($moduleName,
+         "between lines 79 and 81");
+      }();
+   });
+   var facebookIcon = function (_v4) {
+      return function () {
+         switch (_v4.ctor)
+         {case "_Tuple2":
+            return A3($Graphics$Element.container,
+              $Basics.floor($Basics.toFloat(_v4._0) * 0.12),
+              $Basics.ceiling(A2(percentOfDiag,
+              {ctor: "_Tuple2"
+              ,_0: _v4._0
+              ,_1: _v4._1},
+              7.0e-2)),
+              $Graphics$Element.midRight)($Graphics$Element.link("https://www.facebook.com/joanna.carey2")(A3($Graphics$Element.image,
+              $Basics.floor(A2(percentOfDiag,
+              {ctor: "_Tuple2"
+              ,_0: _v4._0
+              ,_1: _v4._1},
+              5.8e-2)),
+              $Basics.floor(A2(percentOfDiag,
+              {ctor: "_Tuple2"
+              ,_0: _v4._0
+              ,_1: _v4._1},
+              5.8e-2)),
+              "./resources/facebook.png")));}
+         _E.Case($moduleName,
+         "between lines 40 and 42");
+      }();
+   };
+   var bannerBg = function (_v8) {
+      return function () {
+         switch (_v8.ctor)
+         {case "_Tuple2":
+            return $Graphics$Element.opacity(1)($Graphics$Element.color($Color.black)(A2($Graphics$Element.spacer,
+              _v8._0,
+              $Basics.ceiling(A2(percentOfDiag,
+              {ctor: "_Tuple2"
+              ,_0: _v8._0
+              ,_1: _v8._1},
+              7.0e-2)))));}
+         _E.Case($moduleName,
+         "on line 25, column 19 to 93");
+      }();
+   };
+   var footerStyle = F2(function (w,
+   h) {
+      return {_: {}
+             ,bold: true
+             ,color: $Color.black
+             ,height: $Maybe.Just(A2(percentOfDiag,
+             {ctor: "_Tuple2",_0: w,_1: h},
+             3.0e-2))
+             ,italic: false
+             ,line: $Maybe.Nothing
+             ,typeface: _L.fromArray(["century gothic"
+                                     ,"sans-serif"])};
+   });
+   var footer = F3(function (_v12,
+   leftText,
+   rightText) {
+      return function () {
+         switch (_v12.ctor)
+         {case "_Tuple2":
+            return function () {
+                 var percentage = _U.cmp(_v12._0,
+                 _v12._1) > 0 ? 7.0e-2 : 0.12;
+                 var footerHeight = $Basics.floor(A2(percentOfDiag,
+                 {ctor: "_Tuple2"
+                 ,_0: _v12._0
+                 ,_1: _v12._1},
+                 percentage));
+                 return $Graphics$Element.opacity(1)(A2($Graphics$Element.flow,
+                 $Graphics$Element.right,
+                 _L.fromArray([$Graphics$Element.link(_L.append($String.join("")(A2($String.split,
+                              " ",
+                              leftText)),
+                              ".elm"))($Graphics$Element.color($Color.red)(A3($Graphics$Element.container,
+                              _v12._0 / 2 | 0,
+                              footerHeight,
+                              $Graphics$Element.middle)($Text.centered($Text.style(A2(footerStyle,
+                              _v12._0,
+                              _v12._1))($Text.toText(leftText))))))
+                              ,$Graphics$Element.link(_L.append($String.join("")(A2($String.split,
+                              " ",
+                              rightText)),
+                              ".elm"))($Graphics$Element.color($Color.blue)(A3($Graphics$Element.container,
+                              _v12._0 / 2 | 0,
+                              footerHeight,
+                              $Graphics$Element.middle)($Text.centered($Text.style(A2(footerStyle,
+                              _v12._0,
+                              _v12._1))($Text.toText(rightText))))))])));
+              }();}
+         _E.Case($moduleName,
+         "between lines 54 and 67");
+      }();
+   });
+   var headerStyle = F2(function (w,
+   h) {
+      return {_: {}
+             ,bold: true
+             ,color: $Color.white
+             ,height: $Maybe.Just(A2(percentOfDiag,
+             {ctor: "_Tuple2",_0: w,_1: h},
+             4.2e-2))
+             ,italic: true
+             ,line: $Maybe.Nothing
+             ,typeface: _L.fromArray(["century gothic"
+                                     ,"sans-serif"])};
+   });
+   var bannerText = function (_v16) {
+      return function () {
+         switch (_v16.ctor)
+         {case "_Tuple2":
+            return function () {
+                 var textWidth = $Basics.floor($Basics.toFloat(_v16._0) * 0.87);
+                 return A2($Graphics$Element.flow,
+                 $Graphics$Element.right,
+                 _L.fromArray([A4($Graphics$Element.container,
+                              textWidth,
+                              $Basics.ceiling(A2(percentOfDiag,
+                              {ctor: "_Tuple2"
+                              ,_0: _v16._0
+                              ,_1: _v16._1},
+                              6.0e-2)),
+                              $Graphics$Element.midLeft,
+                              $Text.leftAligned($Text.style(A2(headerStyle,
+                              _v16._0,
+                              _v16._1))($Text.toText(" Joanna Berkebile"))))
+                              ,facebookIcon({ctor: "_Tuple2"
+                                            ,_0: _v16._0
+                                            ,_1: _v16._1})]));
+              }();}
+         _E.Case($moduleName,
+         "between lines 29 and 36");
+      }();
+   };
+   var banner = function (_v20) {
+      return function () {
+         switch (_v20.ctor)
+         {case "_Tuple2":
+            return $Graphics$Element.link("Elm.elm")($Graphics$Element.layers(_L.fromArray([bannerBg({ctor: "_Tuple2"
+                                                                                                     ,_0: _v20._0
+                                                                                                     ,_1: _v20._1})
+                                                                                           ,bannerText({ctor: "_Tuple2"
+                                                                                                       ,_0: _v20._0
+                                                                                                       ,_1: _v20._1})])));}
+         _E.Case($moduleName,
+         "between lines 46 and 50");
+      }();
+   };
+   _elm.Website.Reusables.values = {_op: _op
+                                   ,headerStyle: headerStyle
+                                   ,footerStyle: footerStyle
+                                   ,bannerBg: bannerBg
+                                   ,bannerText: bannerText
+                                   ,facebookIcon: facebookIcon
+                                   ,banner: banner
+                                   ,footer: footer
+                                   ,percentOfDiag: percentOfDiag};
+   return _elm.Website.Reusables.values;
+};</script></head><body><script type="text/javascript">Elm.fullscreen(Elm.Main)</script><noscript></noscript></body></html>

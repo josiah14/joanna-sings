@@ -1,0 +1,30 @@
+Elm.Main = Elm.Main || {};
+Elm.Main.make = function (_elm) {
+   "use strict";
+   _elm.Main = _elm.Main || {};
+   if (_elm.Main.values)
+   return _elm.Main.values;
+   var _op = {},
+   _N = Elm.Native,
+   _U = _N.Utils.make(_elm),
+   _L = _N.List.make(_elm),
+   _A = _N.Array.make(_elm),
+   _E = _N.Error.make(_elm),
+   $moduleName = "Main",
+   $Graphics$Element = Elm.Graphics.Element.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $Text = Elm.Text.make(_elm),
+   $Website$ContentPageSkeleton = Elm.Website.ContentPageSkeleton.make(_elm),
+   $Window = Elm.Window.make(_elm);
+   var markdownText = $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><h2>Experience</h2>\n<p>Joanna has tons of experience. She sings with Jason Vivone and the Billy Bats, a Kansas City blues and roots band,\nand has sung with the East coast opera company Opera Seabrook and was a top student of Robert McFarland, who had a successful\ncareer performing as an Opera Singer.</p>\n<p>Obviously, Joanna is awesome and you should take lessons from her <em>NOW</em>!!!</p>\n<p><em>Sign up for voice lessons <em>NOW</em></em></p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+   "9:16");
+   var main = A2($Signal._op["<~"],
+   A2($Website$ContentPageSkeleton.content,
+   "Experience",
+   markdownText),
+   $Window.dimensions);
+   _elm.Main.values = {_op: _op
+                      ,main: main
+                      ,markdownText: markdownText};
+   return _elm.Main.values;
+};

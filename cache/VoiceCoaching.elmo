@@ -1,0 +1,30 @@
+Elm.Main = Elm.Main || {};
+Elm.Main.make = function (_elm) {
+   "use strict";
+   _elm.Main = _elm.Main || {};
+   if (_elm.Main.values)
+   return _elm.Main.values;
+   var _op = {},
+   _N = Elm.Native,
+   _U = _N.Utils.make(_elm),
+   _L = _N.List.make(_elm),
+   _A = _N.Array.make(_elm),
+   _E = _N.Error.make(_elm),
+   $moduleName = "Main",
+   $Graphics$Element = Elm.Graphics.Element.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $Text = Elm.Text.make(_elm),
+   $Website$ContentPageSkeleton = Elm.Website.ContentPageSkeleton.make(_elm),
+   $Window = Elm.Window.make(_elm);
+   var markdownText = $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><h2>Voice Coaching</h2>\n<p>Joanna just loves voice coaching. It is all she does, She would voice coach all day long and\neverybody loves her for it. Take voice lessons from her and be a champion. Yay Joanna!</p>\n<p><em>Sign up for voice lessons <em>NOW</em></em></p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+   "9:16");
+   var main = A2($Signal._op["<~"],
+   A2($Website$ContentPageSkeleton.content,
+   "Voice Coaching",
+   markdownText),
+   $Window.dimensions);
+   _elm.Main.values = {_op: _op
+                      ,main: main
+                      ,markdownText: markdownText};
+   return _elm.Main.values;
+};

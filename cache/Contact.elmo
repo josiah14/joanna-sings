@@ -1,0 +1,30 @@
+Elm.Main = Elm.Main || {};
+Elm.Main.make = function (_elm) {
+   "use strict";
+   _elm.Main = _elm.Main || {};
+   if (_elm.Main.values)
+   return _elm.Main.values;
+   var _op = {},
+   _N = Elm.Native,
+   _U = _N.Utils.make(_elm),
+   _L = _N.List.make(_elm),
+   _A = _N.Array.make(_elm),
+   _E = _N.Error.make(_elm),
+   $moduleName = "Main",
+   $Graphics$Element = Elm.Graphics.Element.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $Text = Elm.Text.make(_elm),
+   $Website$ContentPageSkeleton = Elm.Website.ContentPageSkeleton.make(_elm),
+   $Window = Elm.Window.make(_elm);
+   var markdownText = $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><h2>Experience</h2>\n<p>Joanna lives in Kansas City and her phone number is 814-555-5555.</p>\n<p>her e-mail is joanna.berkebile@joannaisawesome.com</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+   "9:16");
+   var main = A2($Signal._op["<~"],
+   A2($Website$ContentPageSkeleton.content,
+   "Experience",
+   markdownText),
+   $Window.dimensions);
+   _elm.Main.values = {_op: _op
+                      ,main: main
+                      ,markdownText: markdownText};
+   return _elm.Main.values;
+};

@@ -1,0 +1,83 @@
+Elm.Website = Elm.Website || {};
+Elm.Website.ContentPageSkeleton = Elm.Website.ContentPageSkeleton || {};
+Elm.Website.ContentPageSkeleton.make = function (_elm) {
+   "use strict";
+   _elm.Website = _elm.Website || {};
+   _elm.Website.ContentPageSkeleton = _elm.Website.ContentPageSkeleton || {};
+   if (_elm.Website.ContentPageSkeleton.values)
+   return _elm.Website.ContentPageSkeleton.values;
+   var _op = {},
+   _N = Elm.Native,
+   _U = _N.Utils.make(_elm),
+   _L = _N.List.make(_elm),
+   _A = _N.Array.make(_elm),
+   _E = _N.Error.make(_elm),
+   $moduleName = "Website.ContentPageSkeleton",
+   $Basics = Elm.Basics.make(_elm),
+   $Graphics$Element = Elm.Graphics.Element.make(_elm),
+   $Website$Reusables = Elm.Website.Reusables.make(_elm);
+   var content = F3(function (currentPage,
+   markdownText,
+   _v0) {
+      return function () {
+         switch (_v0.ctor)
+         {case "_Tuple2":
+            return function () {
+                 var body = function (_v4) {
+                    return function () {
+                       switch (_v4.ctor)
+                       {case "_Tuple2":
+                          return A3($Graphics$Element.container,
+                            _v4._0,
+                            _v4._1,
+                            $Graphics$Element.middle)(A4($Graphics$Element.container,
+                            $Basics.floor($Basics.toFloat(_v4._0) * 0.8),
+                            _v4._1,
+                            $Graphics$Element.middle,
+                            A2($Graphics$Element.width,
+                            $Basics.floor($Basics.toFloat(_v4._0) * 0.8),
+                            markdownText)));}
+                       _E.Case($moduleName,
+                       "on line 19, column 9 to 127");
+                    }();
+                 };
+                 var pageFooter = function () {
+                    var rightText = function () {
+                       switch (currentPage)
+                       {case "Contact":
+                          return "Experience";}
+                       return "Contact";
+                    }();
+                    var leftText = function () {
+                       switch (currentPage)
+                       {case "Voice Coaching":
+                          return "Experience";}
+                       return "Voice Coaching";
+                    }();
+                    return A3($Website$Reusables.footer,
+                    {ctor: "_Tuple2"
+                    ,_0: _v0._0
+                    ,_1: _v0._1},
+                    leftText,
+                    rightText);
+                 }();
+                 var pageHeader = $Website$Reusables.banner({ctor: "_Tuple2"
+                                                            ,_0: _v0._0
+                                                            ,_1: _v0._1});
+                 var bodyHeight = _v0._1 - $Graphics$Element.heightOf(pageHeader) - $Graphics$Element.heightOf(pageFooter);
+                 return A2($Graphics$Element.flow,
+                 $Graphics$Element.down,
+                 _L.fromArray([pageHeader
+                              ,body({ctor: "_Tuple2"
+                                    ,_0: _v0._0
+                                    ,_1: bodyHeight})
+                              ,pageFooter]));
+              }();}
+         _E.Case($moduleName,
+         "between lines 8 and 24");
+      }();
+   });
+   _elm.Website.ContentPageSkeleton.values = {_op: _op
+                                             ,content: content};
+   return _elm.Website.ContentPageSkeleton.values;
+};
